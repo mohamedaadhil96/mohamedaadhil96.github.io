@@ -32,7 +32,7 @@ jobs:
           bundler-cache: true
           working-directory: ./
       - name: Install and build npm dependencies
-        run: npm ci && npm run build
+        run: npm install && npm run build
         working-directory: ./
       - name: Build with Jekyll
         run: bundle exec jekyll build
