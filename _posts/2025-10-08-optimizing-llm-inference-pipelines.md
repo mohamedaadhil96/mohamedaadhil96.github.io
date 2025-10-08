@@ -19,7 +19,7 @@ Two powerful techniques can dramatically improve the performance and reliability
 
 This article explores how these strategies work together to optimize LLM inference pipelines for faster builds, lower latency, and more predictable deployments.
 
-## 🏗️ The Challenge: Heavy Models and Cold Starts
+## The Challenge: Heavy Models and Cold Starts
 
 Deploying an LLM typically involves:
 
@@ -35,11 +35,11 @@ Each of these steps can cause:
 
 Without optimization, these factors can lead to multi-minute build times, high startup latency, and increased cloud infrastructure costs.
 
-## ⚡ Step 1: Docker Caching for Faster Builds
+## Step 1: Docker Caching for Faster Builds
 
 Docker caching ensures that layers of your container image—such as installed dependencies and downloaded models—are reused instead of rebuilt every time you deploy.
 
-### ✅ Best Practices
+### Best Practices
 
 #### Use Multi-Stage Builds
 
@@ -80,13 +80,13 @@ Since this layer rarely changes, Docker will cache the model files.
 > Future builds skip dependency and model downloads, reducing build time from minutes to seconds.
 {: .prompt-tip }
 
-## ⚡ Step 2: Model Preloading for Zero-Latency Inference
+## Step 2: Model Preloading for Zero-Latency Inference
 
 Even with caching, an LLM must still load into memory when the container starts. For large models, this can take tens of seconds.
 
 Model preloading ensures the model is loaded once when the container starts, rather than on each API request.
 
-### ✅ Implementation Example (FastAPI)
+### Implementation Example (FastAPI)
 
 ```python
 from fastapi import FastAPI
@@ -111,7 +111,7 @@ async def generate_text(prompt: str):
 
 With `@app.on_event("startup")`, the model loads once during container initialization, so API requests respond instantly.
 
-## 💡 Combining Docker Caching + Model Preloading
+## Combining Docker Caching + Model Preloading
 
 When used together, Docker caching and model preloading enable:
 
@@ -127,13 +127,13 @@ This combination is particularly powerful for:
 - Edge inference containers where startup speed is critical
 - Production APIs serving high-traffic LLM queries
 
-## ⚙️ Extra Optimization Tips
+## Extra Optimization Tips
 
 - **Use Quantized Models**: Reduce memory footprint and load times (e.g., bitsandbytes for 4-bit quantization)
 - **Enable Persistent Volume Storage**: Store models outside the container for shared access between replicas
 - **Leverage GPU-Optimized Images**: Use nvidia/cuda base images to reduce CUDA setup overhead
 
-## 🚀 Key Takeaways
+## Key Takeaways
 
 | Technique | Purpose |
 |-----------|---------|
@@ -144,7 +144,7 @@ This combination is particularly powerful for:
 
 By applying these techniques, you can deploy LLM inference pipelines that are faster, more cost-efficient, and production-ready.
 
-## ✅ Final Thoughts
+## Final Thoughts
 
 LLMs are powerful but resource-heavy. Optimizing your Docker build process and model initialization strategy can save minutes of deployment time and thousands in cloud costs, while delivering instant responses to your users.
 
