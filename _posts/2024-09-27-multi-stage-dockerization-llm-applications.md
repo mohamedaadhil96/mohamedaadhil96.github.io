@@ -6,7 +6,7 @@ categories: [DevOps, Docker]
 tags: [docker, llm, containerization, deployment, multi-stage, pytorch, transformers]
 description: Learn how multi-stage Docker builds can dramatically improve LLM application deployment with smaller images, faster builds, enhanced security, and better scalability across CPU and GPU environments.
 image:
-  path: [/assets/img/posts/docker-llm-deployment.jpg](https://i.ytimg.com/vi/V9egJMknKtM/maxresdefault.jpg)
+  path: "https://i.ytimg.com/vi/V9egJMknKtM/maxresdefault.jpg"
   alt: Multi-stage Docker build process for LLM applications
 pin: false
 math: false
