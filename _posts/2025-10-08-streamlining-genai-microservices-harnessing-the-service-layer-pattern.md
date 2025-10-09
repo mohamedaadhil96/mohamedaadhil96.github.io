@@ -59,13 +59,20 @@ This aligns with SOLID principles, especially Dependency Inversion, allowing you
 
 ```mermaid
 graph LR
-    A[API Layer<br/>FastAPI Routes] --> B[Service Layer<br/>GenerationService]
-    B --> C[Repository Layer<br/>ModelRepository]
-    C --> D[LLM Model<br/>(e.g., GPT-2)]
-    E[External APIs<br/>(e.g., OpenAI)] -.-> B
+    A[API Layer<br/>FastAPI Routes]
+    B[Service Layer<br/>GenerationService]
+    C[Repository Layer<br/>ModelRepository]
+    D[LLM Model<br/>(e.g., GPT-2)]
+    E[External APIs<br/>(e.g., OpenAI)]
+    A --> B
+    B --> C
+    C --> D
+    E -.-> B
     style A fill:#e1f5fe
     style B fill:#f3e5f5
     style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
 ```
 
 ## Implementation: A GenAI Text Generation Microservice
