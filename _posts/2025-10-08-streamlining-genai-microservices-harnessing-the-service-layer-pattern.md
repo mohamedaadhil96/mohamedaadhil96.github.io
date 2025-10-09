@@ -59,11 +59,11 @@ This aligns with SOLID principles, especially Dependency Inversion, allowing you
 
 ```mermaid
 graph LR
-    A[API Layer<br/>FastAPI Routes]
-    B[Service Layer<br/>GenerationService]
-    C[Repository Layer<br/>ModelRepository]
-    D[LLM Model<br/>(e.g., GPT-2)]
-    E[External APIs<br/>(e.g., OpenAI)]
+    A["API Layer<br/>FastAPI Routes"]
+    B["Service Layer<br/>GenerationService"]
+    C["Repository Layer<br/>ModelRepository"]
+    D["LLM Model<br/>(e.g., GPT-2)"]
+    E["External APIs<br/>(e.g., OpenAI)"]
     A --> B
     B --> C
     C --> D
