@@ -1,5 +1,5 @@
 ---
-title: Streamlining GenAI Microservices: Harnessing the Service Layer Pattern 
+title: Streamlining GenAI Microservices: Harnessing the Service Layer Pattern
 author: Aadhil Imam
 date: 2025-10-08 14:00:00 +0400
 categories: [AI/ML, DevOps]
